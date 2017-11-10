@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>前后端分离</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>前后端分离</h1>
+        <p>
+          <small>应用研发部 @Elf-mousE</small>
+          <br>
+          <span>nijun@yiban.cn</span>
+        </p>
+      </section>
+      <section>
+        <section>
+          <h2>现状</h2>
+        </section>
+        <section>
+          <img src="img/frontend/front-or-back-1.png" alt="">
+        </section>
+        <section>
+          <img src="img/frontend/front-or-back-2.png" alt="">
+        </section>
+        <section>
+          <h2>WHY?</h2>
+        </section>
+        <section>
+          <h3>就跟为什么要代码重构一样</h3>
+          <ul class="fragment">
+            <li>职责分离</li>
+            <li>对的人做对的事</li>
+            <li>更好的共建模式</li>
+            <li>快速的反应变化</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>探索之路</h2>
+        </section>
+        <section>
+          <img src="img/frontend/work-mode-1.png" alt="">
+        </section>
+        <section>
+          <h4>初代Web程序</h4>
+          <pre><code class="hljs">&lt;% /* ASP、JSP风格 */ %&gt;
+
+&lt;? /* PHP风格 */ ?&gt;
+</code></pre>
+        </section>
+        <section>
+          <h4>CMS时代</h4>
+          <ul class="fragment">
+            <li>Joomla</li>
+            <li>Drupal</li>
+            <li>Wordpress</li>
+          </ul>
+          <pre class="fragment"><code class="hljs">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" &lt;?php language_attributes(); ?&gt;&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="&lt;?php bloginfo('html_type'); ?&gt;; charset=&lt;?php bloginfo('charset'); ?&gt;" /&gt;
+&lt;title&gt;&lt;?php bloginfo('name'); ?&gt; &rsaquo; &lt;?php echo $title; ?&gt;&lt;/title&gt;
+</code></pre>
+        </section>
+        <section>
+          <h4>后端MVC时代</h4>
+          <ul class="fragment">
+            <li>Yii</li>
+            <li>Laravel</li>
+          </ul>
+          <pre class="fragment"><code class="hljs">&lt;html&gt;
+    &lt;head&gt;
+        <title>App Name - @yield('title')</title>
+    &lt;/head&gt;
+    &lt;body&gt;
+        @section('sidebar')
+            This is the master sidebar.
+        @show
+
+        <div class="container">
+            @yield('content')
+        </div>
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </section>
+        <section>
+          <h4>RESTful时代</h4>
+          <pre class="fragment"><code class="hljs">// 查询用户
+http://open.domain.com/app/getUser
+// 新建用户
+http://open.domain.com/app/addUser
+// 更新用户
+http://open.domain.com/app/updateUser
+// 删除用户
+http://open.domain.com/app/deleteUser
+</code></pre>
+          <pre class="fragment"><code class="hljs">// GET: 查询用户；POST: 新建用户；PUT: 更新用户；DELETE: 删除用户
+http://open.domain.com/v1/app/user
+</code></pre>
+          <p class="fragment">后端提供WebService，前端负责数据表现</p>
+        </section>
+        <section>
+          <h4>前端MV*时代</h4>
+          <ul class="fragment">
+            <li>Angular</li>
+            <li>React</li>
+            <li>Vue.js</li>
+          </ul>
+          <pre class="fragment"><code class="hljs"><div id="app">
+  {{ message }}
+</div>
+
+&lt;script&gt;
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+})
+&lt;/script&gt;
+</code></pre>
+        </section>
+        <section>
+          <img src="img/frontend/work-mode-2.png" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>分离方案</h2>
+        </section>
+        <section>
+          <h4>经典的后端MVC</h4>
+          <img src="img/frontend/back-end-mvc.png" alt="">
+        </section>
+        <section>
+          <h4>View层谁来维护</h4>
+          <ul>
+            <li>前端写Demo，后端套页面
+              <ul class="fragment">
+                <li>后端需要写HTML</li>
+                <li>前端仍然确认后端写的HTML</li>
+              </ul>
+            </li>
+            <li>前端写View层，后端只管数据
+              <ul class="fragment">
+                <li>前端需要熟悉后端语言</li>
+                <li>前端需要了解后端架构</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>分离前</h4>
+          <pre class="fragment">PM：“我要这个功能”
+后端：“这个先找前端做个模板”
+前端：“模板做完了”
+后端：“我来对接一下，这里样式不对”
+前端：“我改完了”
+后端：“功能交付”
+
+PM：“春节要加这个活动”
+后端：“这个先找前端改个模板”
+前端：“模板做完了”
+后端：“我来对接一下，这里样式不对”
+前端：“我改完了”
+后端：“功能交付”</pre>
+        </section>
+        <section>
+          <h4>分离后</h4>
+          <pre class="fragment">PM：“我要这个功能”
+前端：“我要接口”
+后端：“接口完成了”
+前端：“我来对接一下，功能交付”
+
+PM：“春节要加这个活动”
+前端：“需要增加接口”
+后端：“接口完成了”
+前端：“我来对接一下，功能交付”</pre>
+        </section>
+        <section>
+          <img src="img/frontend/client-side-mvc.jpg" alt="">
+        </section>
+        <section>
+          <p>后台只需提供API接口，前端调用AJAX实现数据呈现。</p>
+        </section>
+        <section>
+          <h4>问题又来了</h4>
+          <ol>
+            <li>如何明确API</li>
+            <li>如何调试API</li>
+          </ol>
+        </section>
+        <section>
+          <h4>解决方案</h4>
+          <ol>
+            <li>撰写API文档（<a href="http://apidocjs.com/">apiDoc</a>）</li>
+            <li>使用前端工作流（<a href="http://balmjs.com/">BalmJS</a>）</li>
+          </ol>
+        </section>
+        <section>前端工作流方案
+          <pre class="fragment">
+                ┌ - - - - - ┐
+                |           |
+                | GitServer | - - - - - - → publish to online
+                |           |
+                └ - - - - - ┘
+                    ↑  |          git pull
+           git push |  | - - - - - - ┬ - - - - - - ┐
+                    |  ↓             ↓             ↓
+                ┌ - - - - - ┐  ┌ - - - - - ┐  ┌ - - - - - ┐
+                |           |  |           |  |           |
+                |  Back-End |  |  Back-End |  | DevServer |
+                |  (Local)  |  |  (Others) |  |           |
+                └ - - - - - ┘  └ - - - - - ┘  └ - - - - - ┘
+                    ↑ ├ - - - - - - - ┴ - - - - - ┘   ↑
+       balm.publish | |         APIs                  |
+                    | ↓                               |
+                ┌ - - - - - ┐         balm.ftp        |
+                |           | - - - - - - - - - - - - ┘
+                | Front-End | - - - - - - → publish to online
+                |  (Local)  |   balm.zip
+                └ - - - - - ┘
+                      ↑ 1. npm run dev  愉快的开发
+                      | 2. npm run prod 自动打包发布
+              前端主要关心的在这里
+</pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>应用场景</h2>
+          <ul class="fragment">
+            <li>SPA应用</li>
+            <li>大多数后台应用</li>
+            <li>展示类网站</li>
+            <li>移动APP页面</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>优缺点及使用意义</h2>
+        </section>
+        <section>
+          <h4>优点</h4>
+          <ol>
+            <li>代码解耦</li>
+            <li>分工明确，提高工作效率</li>
+            <li>局部性能提升</li>
+            <li>降低维护成本</li>
+          </ol>
+        </section>
+        <section>服务器端渲染
+          <pre><code class="hljs"><select>
+  <option value=''>--请选择所属业务--</option>
+  {% for item in item_list %}
+  <option value="{{ item }}">{{ item }}</option>
+  {% endfor %}
+</select>
+</code></pre>
+        </section>
+        <section>前端渲染
+          <pre><code class="hljs"><template>
+  <select id="rander">
+    <option value=''>--请选择所属业务--</option>
+    <option v-for="list in lists" :value="list" v-text="list"></option>
+  </select>
+</template>
+
+&lt;script&gt;
+export default {
+  data: {
+    return {
+      lists: ['选项一', '选项二', '选项三', '选项四']
+    }
+  }，
+  ready: function () {
+    this.$http({
+      url: '/demo/',
+      method: 'POST'
+    })
+    .then(function (response) {
+      this.lists = response.data.lists // 获取服务器端数据并渲染
+    })
+  }
+}
+&lt;/script&gt;
+</code></pre>
+        </section>
+        <section>
+          <h2>前后端职责清晰了</h2>
+          <table style="font-size:75%;">
+            <thead>
+              <tr>
+                <th style="text-align: center">
+                  后端</th>
+                <th colspan="2" style="text-align: center">
+                  前端</th>
+              </tr>
+              <tr>
+                <th colspan="2" style="text-align: center">服务器</th>
+                <th style="text-align: center">浏览器</th>
+              </tr>
+              <tr>
+                <th style="text-align: center">PHP/JAVA</th>
+                <th style="text-align: center">NodeJS</th>
+                <th style="text-align: center">HTML + CSS + JS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: top;">
+                  <ul>
+                    <li>服务层</li>
+                    <li>提供数据接口</li>
+                    <li>维持数据稳定</li>
+                    <li>封装业务逻辑</li>
+                  </ul>
+                </td>
+                <td style="vertical-align: top;">
+                  <ul>
+                    <li>跑在<strong>服务器</strong>上的JS</li>
+                    <li>转发数据，串接服务</li>
+                    <li>编译样式、脚本</li>
+                    <li>优化代码</li>
+                    <li>更多的可能</li>
+                  </ul>
+                </td>
+                <td style="vertical-align: top;">
+                  <ul>
+                    <li>跑在<strong>浏览器</strong>上的JS</li>
+                    <li>CSS、JS加载与运行</li>
+                    <li>任何的前端框架、库</li>
+                    <li>共用模版</li>
+                    <li>路由控制</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section>
+        <h2>Thanks for your time</h2>
+      </section>
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+    transition: 'convex', // none/fade/slide/convex/concave/zoom
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [{
+      src: 'plugin/markdown/marked.js'
+    }, {
+      src: 'plugin/markdown/markdown.js'
+    }, {
+      src: 'plugin/notes/notes.js',
+      async: true
+    }, {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }]
+  });
+  </script>
+</body>
+
+</html>
