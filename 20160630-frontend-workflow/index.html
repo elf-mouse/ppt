@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>前端工作流</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>前端工作流</h1>
+        <p>
+          <small>@Elf-mousE</small>
+        </p>
+      </section>
+      <section>
+        <h2>Node.js安装</h2>
+        <ol>
+          <li class="fragment"><a href="https://nodejs.org/">Node.js</a></li>
+          <li class="fragment"><a href="https://www.python.org/">Python</a>（必须2.6或2.7）</li>
+          <li class="fragment"><a href="http://go.microsoft.com/fwlink/?LinkId=691126">Visual C++ Build Tools</a>或<a href="https://www.visualstudio.com/products/visual-studio-community-vs">Visual Studio 2015</a></li>
+          <li class="fragment"><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40773">.NET Framework 4.5.1</a>（仅限Windows Vista/7）</li>
+          <li class="fragment"><pre><code class="hljs">npm install -g node-gyp</code></pre></li>
+        </ol>
+      </section>
+      <section>
+        <h2>Node.js配置</h2>
+        <pre class="fragment"><code class="hljs">// C:\Users\用户名\.npmrc
+
+python=C:/Python2.7/python.exe
+msvs_version=2015
+
+registry=https://registry.npm.taobao.org
+
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass
+        </code></pre>
+      </section>
+      <section>
+        <h2>Windows的经典坑</h2>
+        <h4 class="fragment">无法正常删除node_modules</h4>
+        <pre class="fragment"><code class="hljs">npm install -g rimraf</code></pre>
+        <pre class="fragment"><code class="hljs">D:\src > rimraf node_modules</code></pre>
+      </section>
+      <section>
+        <h2>前端项目结构</h2><pre><code class="hljs">
+project
+├── dist
+├─┬ src
+│ ├─┬ css
+│ │ └── main.css
+│ ├── img
+│ ├─┬ js
+│ │ └── main.js
+│ └── index.html
+├── dotfile
+├── gulpfile.js
+└── package.json
+</code></pre>
+      </section>
+      <section>
+        <h2><a href="https://github.com/balmjs/balm">BalmJS</a></h2>
+        <p class="fragment">Be inspired by Laravel Elixir</p>
+      </section>
+      <section>
+        <h2>功能</h2>
+        <ul>
+          <li class="fragment">样式：sass/less/postcss</li>
+          <li class="fragment">脚本：es6/typescript</li>
+          <li class="fragment">雪碧图：支持</li>
+          <li class="fragment">缓存文件：支持</li>
+          <li class="fragment">代理服务器：支持</li>
+          <li class="fragment">支持的项目类型：html/laravel/vue.js/react/typescript+react/angular2等</li>
+        </ul>
+      </section>
+      <section>
+        <h3>安装</h3>
+        <pre><code class="hljs">npm install --save-dev balm gulp</code></pre>
+      </section>
+      <section>
+        <h3>配置</h3>
+<pre><code class="hljs">// gulpfile.js
+var balm = require('balm');
+
+balm.config = {
+  proxy: 'www.yiban.dev',
+  roots: {
+    source: 'src',
+    target: 'public'
+  },
+  paths: {
+    source: {
+      css: 'css',
+      js: 'js',
+      img: 'img'
+    }
+  },
+  styles: {
+    ext: 'scss'
+  },
+  scripts: {
+    entry: {
+      'main': './app/js/main.js'
+    }
+  },
+  sprites: {
+    imgList: ['icon']
+  }
+};
+
+balm.go();
+</code></pre>
+      </section>
+      <section>
+        <h3>使用</h3>
+        <pre><code class="hljs">gulp // 开发</code></pre>
+        <pre><code class="hljs">gulp --production // 打包</code></pre>
+      </section>
+      <section>
+        <h2>Thanks for your time</h2>
+      </section>
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+    transition: 'convex', // none/fade/slide/convex/concave/zoom
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [{
+      src: 'plugin/markdown/marked.js'
+    }, {
+      src: 'plugin/markdown/markdown.js'
+    }, {
+      src: 'plugin/notes/notes.js',
+      async: true
+    }, {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }]
+  });
+  </script>
+</body>
+
+</html>
