@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>2015.02.05 易班前端小分享</title>
+  <link rel="stylesheet" href="src/css/webslide.css">
+  <link rel="stylesheet" href="src/css/codecolorer.css">
+</head>
+
+<body>
+
+  <div id="slide">
+    <div class="slides">
+
+      <section id="cover" class="step">
+        <section class="title">
+          <h1>易班前端小分享</h1>
+          <h2>应用项目组<br>@Elf-mousE<br>nijun@yiban.cn</h2>
+          <h3>2015.02.05</h3>
+        </section>
+      </section>
+
+      <section id="slide2" class="step slide rebuild">
+        <h1 class="header">前端到底是神马东西？</h1>
+        <div data-build>
+          <h2>HTML</h2>
+          <ul>
+            <li>结构</li>
+          </ul>
+          <h2>CSS</h2>
+          <ul>
+            <li>表现</li>
+          </ul>
+          <h2>JS</h2>
+          <ul>
+            <li>行为</li>
+          </ul>
+          <h2>More and More</h2>
+        </div>
+      </section>
+
+      <section id="slide3" class="step slide rebuild">
+        <center><img src="src/img/web-all.png" alt="前端">
+        </center>
+      </section>
+
+      <section id="slide4" class="step slide rebuild">
+        <h1>静态资源根目录(public)</h1>
+        <div data-build>
+          <h2>样式目录(css)</h2>
+          <ul>
+            <li>全局通用样式</li>
+          </ul>
+          <ul>
+            <li>快搭应用样式</li>
+          </ul>
+          <ul>
+            <li>各功能页面样式</li>
+          </ul>
+          <h2>字体目录(fonts)</h2>
+          <h2>图片目录(images)</h2>
+          <h2>脚本目录(js)</h2>
+          <ul>
+            <li>配置文件</li>
+          </ul>
+          <ul>
+            <li>各类库(jQuery, SeaJS, Arale等)</li>
+          </ul>
+          <ul>
+            <li>第三方或自定义插件</li>
+          </ul>
+          <ul>
+            <li>各功能页面启动脚本</li>
+          </ul>
+          <ul>
+            <li>yiban主脚本</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="css1" class="step slide rebuild">
+        <h1>总体样式方案</h1>
+
+        <div data-build>
+          <h2>reset</h2>
+          <ul>
+            <li>Normalize.css</li>
+          </ul>
+
+          <h2>栅格化</h2>
+          <ul>
+            <li>自定义</li>
+          </ul>
+
+          <h2>字体文件</h2>
+          <ul>
+            <li>自定义（摸索ing）</li>
+          </ul>
+
+          <h2>组件化</h2>
+        </div>
+      </section>
+
+      <section id="css2" class="step slide rebuild">
+        <h1>CSS预处理器</h1>
+        <div data-build>
+          <h2>优点</h2>
+          <ul>
+            <li>变量</li>
+          </ul>
+          <ul>
+            <li>计算功能</li>
+          </ul>
+          <ul>
+            <li>嵌套</li>
+          </ul>
+          <ul>
+            <li>代码重用</li>
+          </ul>
+          <ul>
+            <li>更多更能等你发现……</li>
+          </ul>
+          <hr>
+          <h2>选择困难症来了~.~</h2>
+          <ul>
+            <li>Sass</li>
+            <li>Less</li>
+            <li>Stylus</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="cssdemo1" class="step slide rebuild">
+        <h2>变量</h2>
+        <div data-build>
+          <div class="codecolorer-container css railscasts" style="overflow:auto;white-space:nowrap;width:700px;">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="line-numbers">
+                    <div>1
+                      <br>2
+                      <br>3
+                      <br>4
+                      <br>5
+                      <br>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="css codecolorer">
+                      $light-blue-500
+                      <span class="sy0">:</span>
+                      <span class="nu0">#03a9f4</span>
+                      <span class="sy0">;</span>
+                      <span class="co1">// global link :hover</span>
+                      <br>
+                      <br>a:hover
+                      <span class="sy0">{</span>
+                      <br>&nbsp;&nbsp;color
+                      <span class="sy0">:</span>
+                      <span class="nu0">$light-blue-500</span>
+                      <span class="sy0">;</span>
+                      <br>
+                      <span class="sy0">}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>计算功能</h2>
+          <div class="codecolorer-container css railscasts" style="overflow:auto;white-space:nowrap;width:700px;">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="line-numbers">
+                    <div>1
+                      <br>2
+                      <br>3
+                      <br>4
+                      <br>5
+                      <br>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="css codecolorer">
+                      $width
+                      <span class="sy0">:</span>
+                      <span class="nu0">123px</span>
+                      <span class="sy0">;</span>
+                      <br>div
+                      <span class="sy0">{</span>
+                      <br>
+                      <br>&nbsp;&nbsp;width
+                      <span class="sy0">:</span>
+                      <span class="nu0">$width / 3</span>
+                      <span class="sy0">;</span>
+                      <span class="co1">// 41px</span>
+                      <br>
+                      <span class="sy0">}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>嵌套</h2>
+          <div class="codecolorer-container css railscasts" style="overflow:auto;white-space:nowrap;width:700px;">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="line-numbers">
+                    <div>1
+                      <br>2
+                      <br>3
+                      <br>4
+                      <br>5
+                      <br>6
+                      <br>7
+                      <br>8
+                      <br>9
+                      <br>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="css codecolorer">
+                      $light-blue-500
+                      <span class="sy0">:</span>
+                      <span class="nu0">#03a9f4</span>
+                      <span class="sy0">;</span>
+                      <span class="co1">// global link :hover</span>
+                      <br> $blue-gray-700
+                      <span class="sy0">:</span>
+                      <span class="nu0">#324f68</span>
+                      <span class="sy0">;</span>
+                      <span class="co1">// global link color, title color</span>
+                      <br>
+                      <br> a
+                      <span class="sy0">{</span>
+                      <br>&nbsp;&nbsp;color
+                      <span class="sy0">:</span>
+                      <span class="nu0">$blue-gray-700</span>
+                      <span class="sy0">;</span>
+                      <br>&nbsp;&nbsp;&:hover
+                      <span class="sy0">{</span>
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;color
+                      <span class="sy0">:</span>
+                      <span class="nu0">$light-blue-500</span>
+                      <span class="sy0">;</span>
+                      <br>&nbsp;&nbsp;
+                      <span class="sy0">}</span>
+                      <br>
+                      <span class="sy0">}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="cssenv" class="step slide rebuild">
+        <h1>Sass环境</h1>
+        <center data-build>
+          <img src="src/img/gfw.jpg" "卡成狗还被墙">
+          <p>上个网还卡成狗，还被“墙”了！</p>
+          <h2>囧rz</h2>
+        </center>
+      </section>
+
+      <section id="csstool" class="step slide rebuild">
+        <h2>可视化工具</h2>
+        <div data-build>
+          <h3><a href="http://koala-app.com/" target="_blank">Koala</a>（考拉）</h3>
+          <p>前端预处理器语言图形编译工具</p>
+          <ul>
+            <li>多语言支持</li>
+          </ul>
+          <ul>
+            <li>实时编译</li>
+          </ul>
+          <ul>
+            <li>编译选项</li>
+          </ul>
+          <ul>
+            <li>跨平台</li>
+          </ul>
+          <ul>
+            <li><strong>免费且负责</strong>（我是重点 -_-||）</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="js1" class="step slide rebuild">
+        <h1>JS模块化</h1>
+        <p>AMD(RequireJS) vs CMD(Sea.js)</p>
+        <div data-build>
+          <h2>为什么使用 Sea.js ？</h2>
+          <ul>
+            <li>简单友好的模块定义规范：Sea.js 遵循 CMD 规范，可以像 Node.js 一般书写模块代码。</li>
+          </ul>
+          <ul>
+            <li>自然直观的代码组织方式：依赖的自动加载、配置的简洁清晰，可以让我们更多地享受编码的乐趣。</li>
+          </ul>
+          <h2>兼容性</h2>
+          <ul>
+            <li>Chrome 3+ ✔</li>
+          </ul>
+          <ul>
+            <li>Firefox 2+ ✔</li>
+          </ul>
+          <ul>
+            <li>Safari 3.2+ ✔</li>
+          </ul>
+          <ul>
+            <li>Opera 10+ ✔</li>
+          </ul>
+          <ul>
+            <li>IE 5.5+ ✔</li>
+          </ul>
+          <p>Sea.js 可运行在 Mobile 端，包括 Hybrid 模式的 App 上。理论上，Sea.js 可以运行在任何浏览器引擎上。</p>
+        </div>
+      </section>
+
+      <section id="jsdemo1" class="step slide rebuild">
+        <h2>Sea.js的使用</h2>
+        <div data-build>
+
+          <ul>
+            <li>index.html</li>
+          </ul>
+
+          <div class="codecolorer-container javascript railscasts" style="overflow:auto;white-space:nowrap;width:700px;">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="line-numbers">
+                    <div>1
+                      <br>2
+                      <br>3
+                      <br>4
+                      <br>5
+                      <br>6
+                      <br>7
+                      <br>8
+                      <br>9
+                      <br>10
+                      <br>11
+                      <br>12
+                      <br>13
+                      <br>14
+                      <br>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="javascript codecolorer">
+                      &lt;script src=<span class="st0">"path/to/sea.js"</span>&gt;&lt;/script&gt;
+                      <br>
+                      <br> &lt;script&gt;
+                      <br>
+                      <span class="co1">// seajs 的简单配置</span>
+                      <br> seajs.config({
+                      <br>&nbsp;&nbsp;base
+                      <span class="sy0">:</span>
+                      <span class="st0">'/public/js/'</span>
+                      <span class="sy0">,</span>
+                      <br>&nbsp;&nbsp;alias
+                      <span class="sy0">:</span> {
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="st0">'jquery'</span>
+                      <span class="sy0">:</span>
+                      <span class="st0">'jquery/jquery/1.10.1/jquery.js'</span>
+                      <br>&nbsp;&nbsp;}
+                      <br> })
+                      <span class="sy0">;</span>
+                      <br>
+                      <br>
+                      <span class="co1">// 加载入口模块</span>
+                      <br> seajs.use(
+                      <span class="st0">'index/index'</span>)
+                      <span class="sy0">;</span>
+                      <br> &lt;/script&gt;
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <ul>
+            <li>index.js</li>
+          </ul>
+
+          <div class="codecolorer-container javascript railscasts" style="overflow:auto;white-space:nowrap;width:700px;">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="line-numbers">
+                    <div>1
+                      <br>2
+                      <br>3
+                      <br>4
+                      <br>5
+                      <br>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="javascript codecolorer">
+                      define(function(<span class="kw1">require</span>) {
+                      <br>&nbsp;&nbsp;<span class="kw2">var</span> $
+                      <span class="sy0">=</span>
+                      <span class="kw1">require</span>(<span class="st0">'jquery'</span>)
+                      <span class="sy0">;</span>
+                      <br>&nbsp;&nbsp;<span class="co1">// your code</span>
+                      <br> })
+                      <span class="sy0">;</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="app" class="step slide rebuild">
+        <h1>移动APP</h1>
+
+        <div data-build>
+          <h3>Native App</h3>
+          <ul>
+            <li>高成本</li>
+          </ul>
+          <h3>Web App</h3>
+          <ul>
+            <li>低性能</li>
+          </ul>
+          <h3>Hybrid App</h3>
+          <ul>
+            <li>必然趋势</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="html5" class="step slide rebuild">
+        <h1>比较流行的方案</h1>
+
+        <ul data-build>
+          <li>Phonegap</li>
+          <li>jQuery / Zepto + iScroll + X</li>
+          <li>移动APP框架</li>
+          <li>BlendUI / React Native等等</li>
+        </ul>
+      </section>
+
+      <section id="editor" class="step slide rebuild">
+        <h2>编辑器</h2>
+        <ul data-build>
+          <li>普通前端：Apanta、WebStorm、Eclipse、Dreamweaver</li>
+          <li>文艺前端：NotePad++、Sublime</li>
+          <li>牛B前端：Vim</li>
+          <li>装B前端：记事本</li>
+          <li>Ps：总有一款适合你~</li>
+        </ul>
+      </section>
+
+      <section id="debug" class="step slide">
+        <h2>调试工具</h2>
+        <ul>
+          <li>Chrome：开发者工具（推荐）</li>
+          <li>Firefox：firebug</li>
+          <li>IE：debugBar或原版IE环境</li>
+        </ul>
+      </section>
+
+      <section id="saying" class="step slide rebuild">
+        <h2>编程语录</h2>
+        <ul data-build>
+          <li>程序有问题时不要担心。如果所有东西都没问题，你就失业了。（软件工程的Mosher定律）</li>
+          <li>按代码行数来评估软件开发的进度，就如同按重量来评估飞机建造的进度。（比尔·盖茨）</li>
+          <li>软件能够复用前，它必须要可用。</li>
+        </ul>
+      </section>
+
+      <section id="joke" class="step slide rebuild">
+        <h2>程序员的读书历程：</h2>
+        <ul data-build>
+          <li>语言入门</li>
+          <li>语言应用实践</li>
+          <li>语言高阶编程</li>
+          <li>语言的科学与艺术</li>
+          <li>编程之美</li>
+          <li>编程之道</li>
+          <li>编程之禅</li>
+          <li><strong>颈椎病康复指南</strong> -_-||</li>
+        </ul>
+      </section>
+
+      <section id="quetion" class="step">
+        <section class="title">
+          <h1>Question?<br/><b>Q&amp;A</b></h1>
+        </section>
+      </section>
+
+      <section id="end" class="step">
+        <section class="title">
+          <h1>The End<br/><b>Thank You</b></h1>
+        </section>
+      </section>
+
+    </div>
+    <div class="progress"><span></span>
+    </div>
+  </div>
+
+  <canvas id="myCanvas" width="1024" height="768">您的浏览器不支持HTML5,请升级或更换您的浏览器,强烈推荐您使用chrome浏览器。</canvas>
+
+  <menu class="controls" id="slideCtrl">
+    <span class="tool home" onclick="location.hash='#cover'">!</span>
+    <span class="tool paint">p</span>
+    <span class="tool clearIt">d</span>
+  </menu>
+
+  <script type="text/javascript" src="src/js/webslide.js"></script>
+</body>
+
+</html>
