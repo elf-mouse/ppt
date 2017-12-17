@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>数独</title>
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>数独</h1>
+        <p>
+          <small>@Elf-mousE</small>
+        </p>
+      </section>
+      <section>
+        <div><img src="img/sudoku/Sudoku-by-L2G-20050714.svg" alt=""></div>
+        <p class="fragment">一种逻辑性的数字填充游戏</p>
+      </section>
+      <section>
+        <div>只需要逻辑思维能力，与数字运算无关。</div>
+      </section>
+      <section>
+        <section>
+          <h2>起源</h2>
+        </section>
+        <section>
+          <ul>
+            <li>1612年，法国数学家Claude-Gaspard Bachet de Méziriac提出即三阶的方法。</li>
+            <li class="fragment">18世纪，瑞士数学家莱昂哈德·欧拉提出即n阶的方法。</li>
+            <li class="fragment">1892年和1895年，两个法国的日报发表《Carré magique diabolique》，就是即九阶世纪，数独一样的。</li>
+            <li class="fragment">1970年代在美国发展，改名为“数字拼图”（Number Place）、之后流传至日本并发扬光大，以数学智力游戏智力拼图游戏发表。</li>
+            <li class="fragment">1984年在一本游戏杂志《パズル通信ニコリ》正式把它命名为“数独”，意思是“在每一格只有一个数字”。</li>
+          </ul>
+        </section>
+        <section>
+          <div><img src="img/sudoku/Sudoku-origin.jpg" alt=""></div>
+        </section>
+        <section>
+          <div>数独真正在全世界流行起来，应该归功于高乐德（Wayne Gould）。</div>
+        </section>
+        <section>
+          <ul>
+            <li>台湾于2005年5月由《中国时报》首度引进, 且每日连载, 亦造成很大的回响。台湾数独发展协会（Taiwan Sudoku Association，简称TSA）亦为世界解谜联盟会员。</li>
+            <li class="fragment">香港则是由AM730于2005年7月30日创刊时引入数独。</li>
+            <li class="fragment">中国大陆是在2007年2月28日正式引入数独。北京晚报智力休闲数独俱乐部（数独联盟前身）在新闻大厦举行加入世界谜题联合会的颁证仪式，成为世界谜题联合会的39个成员之一。</li>
+            <li class="fragment">2010年代，随着电脑和智能手机的兴起，数独在个人电脑，网站和手机上也很受欢迎。</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>扫看技巧</h2>
+        </section>
+        <section>
+          <h3>1. 单向扫看法</h3>
+          <img src="img/sudoku/techniques/1186.gif" alt="">
+          <img src="img/sudoku/techniques/1187.gif" alt="">
+        </section>
+        <section>
+          <h3>2. 双向扫看法</h3>
+          <img src="img/sudoku/techniques/1188.gif" alt="">
+          <img src="img/sudoku/techniques/1189.gif" alt="">
+        </section>
+        <section>
+          <h3>3. 寻找候选法</h3>
+          <img src="img/sudoku/techniques/1190.gif" alt="">
+          <img src="img/sudoku/techniques/1191.gif" alt="">
+        </section>
+        <section>
+          <h3>4. 数字排除法</h3>
+          <img src="img/sudoku/techniques/1192.gif" alt="">
+          <img src="img/sudoku/techniques/1193.gif" alt="">
+        </section>
+        <section>
+          <h3>5. 寻找空缺法</h3>
+          <img src="img/sudoku/techniques/1194.gif" alt="">
+          <img src="img/sudoku/techniques/1195.gif" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>分析技巧</h2>
+        </section>
+        <section>
+          <h3>1. 排除法之宫内显性数对</h3>
+          <img src="img/sudoku/techniques/1196.gif" alt="">
+          <img src="img/sudoku/techniques/1197.gif" alt="">
+        </section>
+        <section>
+          <h3>2. 排除法之行列间显性数对</h3>
+          <img src="img/sudoku/techniques/1198.gif" alt="">
+          <img src="img/sudoku/techniques/1199.gif" alt="">
+        </section>
+        <section>
+          <h3>3. 排除法之行列间隐性数对</h3>
+          <img src="img/sudoku/techniques/1200.gif" alt="">
+          <img src="img/sudoku/techniques/1201.gif" alt="">
+        </section>
+        <section>
+          <h3>4. 排除法之X翼</h3>
+          <img src="img/sudoku/techniques/1202.gif" alt="">
+          <img src="img/sudoku/techniques/1203.gif" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>数独种类</h2>
+        </section>
+        <section>
+          <h3>Classic 数独</h3>
+          <img src="img/sudoku/rules/1354.gif" alt="">
+          <img src="img/sudoku/rules/1355.gif" alt="">
+        </section>
+        <section>
+          <h3>Mini 数独</h3>
+          <p>每个谜题都由一个在不同位置给与提示数字的4x4或6x6网格组成。</p>
+        </section>
+        <section>
+          <h3>Mega 数独</h3>
+          <p>每个谜题都由一个在不同位置给与提示数字的12x12或16x16的网格组成。</p>
+        </section>
+        <section>
+          <h3>Irregular 数独</h3>
+          <img src="img/sudoku/rules/1356.gif" alt="">
+        </section>
+        <section>
+          <h3>Diagonal 数独</h3>
+          <img src="img/sudoku/rules/1357.gif" alt="">
+          <img src="img/sudoku/rules/1358.gif" alt="">
+        </section>
+        <section>
+          <h3>Multi 数独</h3>
+          <img src="img/sudoku/rules/1359.gif" alt="">
+        </section>
+        <section>
+          <h3>Sum 数独</h3>
+          <img src="img/sudoku/rules/1360.gif" alt="">
+        </section>
+        <section>
+          <h3>OddEven 数独</h3>
+          <img src="img/sudoku/rules/1361.gif" alt="">
+        </section>
+        <section>
+          <h3>Chain 数独</h3>
+          <img src="img/sudoku/rules/2092.gif" alt="">
+        </section>
+        <section>
+          <h3>数独衍生</h3>
+          <p>数和、数回、数壹、数墙、...</p>
+        </section>
+      </section>
+      <section>
+        <h2>Thanks for your time</h2>
+      </section>
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true
+  });
+  </script>
+</body>
+
+</html>
